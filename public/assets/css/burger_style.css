@@ -1,0 +1,54 @@
+/* * {
+    outline: 1px solid red !important;
+}  */
+
+body {
+    background-color: #363533;
+}
+
+
+.bodyLeft {
+    background-image: url("../img/burger2.png");
+    background-position: center top; 
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    
+}
+
+#fixedButtons {
+    position: relative;
+    right: 0px;
+}
+
+.burgerList {
+    text-align: left;
+    background-color: white;
+    border: 3px black;
+}
+
+.burgTitle {
+    text-align: center;
+    color: #bab6af;
+}
+
+.titleForm {
+    color: #bab6af;
+    margin-top: 65%;
+    /* background-color: gold; */
+}
+
+.devoured {
+    /* background-color: blue; */
+    color: #282828;
+    float: right;
+    
+}
+
+
+.toEat {
+    /* background-color: aquamarine; */
+    color: #282828;
+    float: left;
+};
+

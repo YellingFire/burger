@@ -1,25 +1,30 @@
 var orm = require("../config/orm.js");
 
-var burgers = {
-    all: function(cb) {
-      orm.all("burgers", function(res) {
-        cb(res);
-        console.log("Burgers.js burgers.all has been called" + res);
-      });
-    },
+var burger = {
+  all: function(callback) {
+    orm.all("burgers", function(res) {
+      callback(res);
+    });
+  },
+  // The variables cols and vals are arrays.
+  create: function(name, callback) {
+    orm.insertOne("burgers", [
+      "burger_name", "devoured"
+    ], [
+      name, false
+    ], callback);
+  },
+  update: function(objColVals, condition, callback) {
+		orm.update("burgers", objColVals, condition, function(res){
+			callback(res);
+		});
+	},
+  delete: function(condition, callback) {
+    orm.delete("burgers", condition, function(res) {
+      callback(res);
+    });
+  }
+};
 
-    // The variables cols and vals are arrays.
-    insertOne: function(cols, vals, cb) {
-      orm.create("burgers", cols, vals, function(res) {
-        cb(res);
-      });
-    },
-
-    update: function(objColVals, condition, cb) {
-      orm.update("burgers", objColVals, condition, function(res) {
-        cb(res);
-      });
-    }
-  };
-  
-  module.exports = burgers;
+// Export the database functions for the controller (catsController.js).
+module.exports = burger;
